@@ -1,8 +1,10 @@
 import json
 import openai
-with open("api_keys.json") as f:
-    openai_api_key = json.load(f)["OPENAI_API_KEY"]
+import os
+
+openai_api_key = os.environ.get("OPENAI_API_KEY")
 client = openai.OpenAI(api_key=openai_api_key)
+
 
 # Pragmatic Language Prompt Template
 def build_pragmatic_prompt(user_text):

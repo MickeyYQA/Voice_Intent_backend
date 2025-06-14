@@ -1,9 +1,9 @@
 import json
 import time
 import requests
+import os
 
-with open("api_keys.json") as f:
-    hume_api_key = json.load(f)["HUME_API_KEY"]
+hume_api_key = os.environ.get("HUME_API_KEY")
 
 def analyze_emotion_from_audio(file_path, num_emotions = 3):
     url = "https://api.hume.ai/v0/batch/jobs"
