@@ -85,7 +85,11 @@ def analyze_literal_vs_figurative(user_text):
         temperature=0.4
     )
     content = response.choices[0].message.content
-    return json.loads(content)
+    try:
+        return json.loads(content)
+    except Exception as e:
+        print("Failed to parse response:", content)
+        return e
 
 
 if __name__ == "__main__":
