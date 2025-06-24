@@ -89,7 +89,7 @@ def analyze_literal_vs_figurative(user_text):
         return json.loads(content)
     except Exception as e:
         print("Failed to parse response:", content)
-        return e
+        return {"error": "Failed to parse response", "details": str(e), "raw_content": content}
 
 
 if __name__ == "__main__":
