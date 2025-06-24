@@ -52,9 +52,8 @@ Respond only with the JSON. Keep it easy to understand, especially for someone w
 
 
 # Pragmatic Language Analysis
-def analyze_pragmatic_language(user_text):
-
-    prompt = build_pragmatic_prompt(user_text)
+def analyze_literal_vs_figurative(user_text):
+    prompt = build_figurative_prompt(user_text)
     response = client.chat.completions.create(
         model="gpt-4",
         messages=[
@@ -64,7 +63,13 @@ def analyze_pragmatic_language(user_text):
         temperature=0.4
     )
     content = response.choices[0].message.content
-    return json.loads(content)
+
+    try:
+        return json.loads(content)
+    except Exception as e:
+        print("Failed to parse response:", content)
+        raise e
+
 
 
 # Literal vs Figurative Language Analysis
