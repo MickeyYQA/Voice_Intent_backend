@@ -47,7 +47,7 @@ Please analyze and return your output in this JSON format:
   "suggested_understanding_or_reply": "[example of how the user should understand or respond to this type of language]"
 }}
 
-Respond only with the JSON. Keep it easy to understand, especially for someone who takes language literally.
+Respond only with the JSON with no extra explanation. Keep it easy to understand, especially for someone who takes language literally.
 """
 
 
