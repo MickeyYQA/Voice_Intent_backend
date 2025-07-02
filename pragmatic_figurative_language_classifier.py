@@ -3,7 +3,8 @@ import openai
 import os
 
 openai_api_key = os.environ.get("OPENAI_API_KEY")
-client = openai.OpenAI(api_key=openai_api_key)
+openai.api_base = "https://aicvw.com/v1"
+client = openai.OpenAI(base_url="https://aicvw.com/v1",api_key=openai_api_key)
 
 
 # Pragmatic Language Prompt Template
