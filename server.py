@@ -31,7 +31,8 @@ def pragmatic():
     if not data or "text" not in data:
         return jsonify({"error": "Missing 'text' field"}), 400
     text = data ["text"]
-    result = analyze_pragmatic_language(text)
+    language = data.get("language", "en")  # Default to English if not specified
+    result = analyze_pragmatic_language(text, language)
     return jsonify(result)
 
 @app.route("/literal", methods = ["POST"])
@@ -41,7 +42,8 @@ def literal():
         return jsonify({"error": "Missing 'text' field"}), 400
     
     text = data["text"]
-    result = analyze_literal_vs_figurative(text)
+    language = data.get("language", "en")  # Default to English if not specified
+    result = analyze_literal_vs_figurative(text, language)
     return jsonify(result)
 
 if __name__ == "__main__":
