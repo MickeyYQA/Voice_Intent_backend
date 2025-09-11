@@ -109,7 +109,7 @@ def analyze_pragmatic_language(user_text, language='en'):
         return json.loads(content)
     except Exception as e:
         print("Failed to parse response:", content)
-        return e
+        return {"error": "Failed to parse response", "details": str(e), "raw_content": content}
     
 
 
