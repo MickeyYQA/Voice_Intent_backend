@@ -11,9 +11,9 @@ client = openai.OpenAI(base_url="https://aicvw.com/v1",api_key=openai_api_key)
 def build_pragmatic_prompt(user_text, language='en'):
     if language == 'zh':
         return f"""
-你是一位沟通教练，帮助自闭症人士理解语言在社交场合中的使用方式。
+你是一位沟通训练师，在帮助自闭症人士理解语言在社交场合中的使用方式。
 
-这个人刚刚在对话中收到了这条消息：
+一位自闭症人士刚刚在对话中收到了这条消息：
 
 "{user_text}"
 
@@ -26,13 +26,13 @@ def build_pragmatic_prompt(user_text, language='en'):
   "suggested_response": "[用户可以给出的礼貌、社交得体的回应示例]"
 }}
 
-只返回JSON块，不要额外解释。
+你有可能会遇到汉语惯用表达和俚语，很多情况下表达的并不是字面的含义，一定要注意这一点。只返回JSON块，不要额外解释。
 """
     else:
         return f"""
-你是一位沟通教练，帮助自闭症人士理解语言在社交场合中的使用方式。
+你是一位沟通训练师，在帮助自闭症人士理解语言在社交场合中的使用方式。
 
-这个人刚刚在对话中收到了这条消息：
+一位自闭症人士刚刚在对话中收到了这条消息：
 
 "{user_text}"
 
@@ -45,7 +45,7 @@ def build_pragmatic_prompt(user_text, language='en'):
   "suggested_response": "[用户可以给出的礼貌、社交得体的回应示例]"
 }}
 
-只返回JSON块，不要额外解释。
+你有可能会遇到汉语惯用表达和俚语，很多情况下表达的并不是字面的含义，一定要注意这一点。只返回JSON块，不要额外解释。
 """
 
 
@@ -55,7 +55,7 @@ def build_figurative_prompt(user_text, language='en'):
         return f"""
 你正在帮助一位自闭症人士理解对话中的某句话是字面意思、比喻意思还是讽刺意思。
 
-这个人刚刚收到了这条消息：
+这位自闭症人士刚刚收到了这条消息：
 
 "{user_text}"
 
@@ -68,13 +68,13 @@ def build_figurative_prompt(user_text, language='en'):
   "suggested_understanding_or_reply": "[用户应该如何理解或回应这种语言的示例]"
 }}
 
-只返回JSON，不要额外解释。保持简单易懂，特别是对于按字面意思理解语言的人。
+保持简单易懂，特别是对于按字面意思理解语言的人。你有可能会遇到汉语惯用表达和俚语，很多情况下表达的并不是字面的含义，一定要注意这一点。只返回JSON块，不要额外解释。
 """
     else:
         return f"""
 你正在帮助一位自闭症人士理解对话中的某句话是字面意思、比喻意思还是讽刺意思。
 
-这个人刚刚收到了这条消息：
+这位自闭症人士刚刚收到了这条消息：
 
 "{user_text}"
 
@@ -87,7 +87,7 @@ def build_figurative_prompt(user_text, language='en'):
   "suggested_understanding_or_reply": "[用户应该如何理解或回应这种语言的示例]"
 }}
 
-只返回JSON，不要额外解释。保持简单易懂，特别是对于按字面意思理解语言的人。
+保持简单易懂，特别是对于按字面意思理解语言的人。你有可能会遇到汉语惯用表达和俚语，很多情况下表达的并不是字面的含义，一定要注意这一点。只返回JSON块，不要额外解释。
 """
 
 
